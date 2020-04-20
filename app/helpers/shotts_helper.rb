@@ -1,0 +1,2 @@
+module ShottsHelper
+end
