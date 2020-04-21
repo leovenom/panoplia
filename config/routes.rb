@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/destroy'
   resources :shotts
 
   devise_for :users, controllers: { registrations: 'registrations'}
