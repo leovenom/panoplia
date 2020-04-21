@@ -1,10 +1,10 @@
 class ShottsController < ApplicationController
   before_action :set_shott, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   # GET /shotts
   # GET /shotts.json
   def index
-    @shotts = Shott.all
+    @shotts = Shott.all.order('created_at DESC')
   end
 
   # GET /shotts/1
@@ -14,7 +14,7 @@ class ShottsController < ApplicationController
 
   # GET /shotts/new
   def new
-    @shott = Shott.new
+    @shott = current_user.shotts.build
   end
 
   # GET /shotts/1/edit
@@ -24,7 +24,7 @@ class ShottsController < ApplicationController
   # POST /shotts
   # POST /shotts.json
   def create
-    @shott = Shott.new(shott_params)
+    @shott = current_user.shotts.build(shott_params)
 
     respond_to do |format|
       if @shott.save
@@ -69,6 +69,6 @@ class ShottsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shott_params
-      params.require(:shott).permit(:title, :description, :user_id)
+      params.require(:shott).permit(:title, :technique, :description, :user_shott)
     end
 end

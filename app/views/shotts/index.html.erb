@@ -1,29 +1,24 @@
-<h1>Shots</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Technique</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section class="section">
+<div class="shotts">
+  <% @shotts.each do |shott| %>
+    <div class="shott-grid-item">
+      <div class="shott-wrapper">
+        
+      <%= link_to shott, class: "shott" do %>
+        <%= image_tag(shott.user_shott_url) %>
+        <div class="shott-data">
+          <h3 class="shott-title"><%= shott.title %></h3>
+          <h3 class="shott-technique"><%= shott.technique %></h3>
+          <div class="shott-description"><%= truncate(shott.description, length: 60) %></div>
+          <div class="shott-time">
+            <%= time_ago_in_words(shott.created_at) %>
+          </div>
+        </div>
+      <% end %>
 
-  <tbody>
-    <% @shotts.each do |shott| %>
-      <tr>
-        <td><%= shott.title %></td>
-        <td><%= shott.technique %></td>
-        <td><%= shott.description %></td>
-        <td><%= shott.user_id %></td>
-        <td><%= link_to 'Show', shott %></td>
-        <td><%= link_to 'Edit', edit_shott_path(shott) %></td>
-        <td><%= link_to 'Destroy', shott, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>
+</section>
