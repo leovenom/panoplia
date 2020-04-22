@@ -27,10 +27,10 @@
         <div class="level-item comments data">
           <%= link_to shott do %>
             <span class="icon"><i class="fa fa-comment"></i></span>
-            0
+            <%= shott.comments.count %>
           <% end %>
         </div>
-        <div class="level-item likes">
+        <div class="level-item likes data">
           <%= link_to '' do %>
             <span class="icon"><i class="fa fa-heart"></i></span>
             <span class="vote_count">0</span>
