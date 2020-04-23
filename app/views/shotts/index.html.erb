@@ -1,9 +1,10 @@
+<%= render 'hero' %>
 
 <section class="section">
 <div class="shotts">
   <% @shotts.each do |shott| %>
     <div class="shott-grid-item">
-      <div class="shott-wrapper">        
+      <div class="shott-wrapper">
       <%= link_to shott, class: "shott" do %>
         <%= image_tag(shott.user_shott_url) %>
         <div class="shott-data">
@@ -15,7 +16,6 @@
           </div>
         </div>
       <% end %>
-
       <nav class="level shott-analytics">
       <div class="level-left"></div>
       <div class="level-right">
@@ -24,45 +24,46 @@
             <span class="icon"><i class="fa fa-eye"></i></span>
             <%= shott.impressionist_count %>
           <% end %>
+          
         </div>
         <div class="level-item comments data">
-          <%= link_to shott do %>
-            <span class="icon"><i class="fa fa-comment"></i></span>
-             <%= shott.comments.count %>
-          <% end %>
-        </div>
-        <div class="level-item likes">
-          <% if user_signed_in? %>
-            
-            <% if current_user.liked? shott %>
-              <%= link_to unlike_shott_path(shott), method: :put, class: "unlike_shott" do %>
-                <span class="icon"><i class="fa fa-heart has-text-primary"></i></span>
-                <span class="vote_count"><%= shott.get_likes.size %></span>
-              <% end %>
-            <% else %>
-              <%= link_to like_shott_path(shott), method: :put, class: "like_shott" do %>
-                <span class="icon"><i class="fa fa-heart"></i></span>
-                <span class="vote_count"><%= shott.get_likes.size %></span>
-              <% end %>
+        <%= link_to shott do %>
+          <span class="icon"><i class="fa fa-comment"></i></span>
+           <%= shott.comments.count %>
+        <% end %>
+      </div>
+      <div class="level-item likes">
+        <% if user_signed_in? %>
+          
+          <% if current_user.liked? shott %>
+            <%= link_to unlike_shott_path(shott), method: :put, class: "unlike_shott" do %>
+              <span class="icon"><i class="fa fa-heart has-text-primary"></i></span>
+              <span class="vote_count"><%= shott.get_likes.size %></span>
             <% end %>
           <% else %>
-              <%= link_to like_shott_path(shott), method: :put, class: "like_shott" do %>
-                <span class="icon"><i class="fa fa-heart"></i></span>
-                <span class="vote_count"><%= shott.get_likes.size %></span>
-              <% end %>
+            <%= link_to like_shott_path(shott), method: :put, class: "like_shott" do %>
+              <span class="icon"><i class="fa fa-heart"></i></span>
+              <span class="vote_count"><%= shott.get_likes.size %></span>
+            <% end %>
           <% end %>
+        <% else %>
+            <%= link_to like_shott_path(shott), method: :put, class: "like_shott" do %>
+              <span class="icon"><i class="fa fa-heart"></i></span>
+              <span class="vote_count"><%= shott.get_likes.size %></span>
+            <% end %>
+        <% end %>
 
-        </div>
       </div>
-    </nav>
-      </div>
-        <div class="user-data">
-          <div class="user-thumb">
-            <%= gravatar_image_tag(shott.user.email.gsub('spam', 'mdeering'), alt: shott.user.name, gravatar: { size: 20 }); %>
-          </div>
-          <div class="user-name"><%= shott.user.name %></div>
-        </div>
-      </div>
-    <% end %>
+    </div>
+  </nav>
   </div>
+  <div class="user-data">
+    <div class="user-thumb">
+      <%= gravatar_image_tag(shott.user.email.gsub('spam', 'mdeering'), alt: shott.user.name, gravatar: { size: 20 }); %>
+    </div>
+    <div class="user-name"><%= shott.user.name %></div>
+  </div>
+</div>
+<% end %>
+</div>
 </section>

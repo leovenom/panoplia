@@ -24,12 +24,11 @@
 					<% if user_signed_in? && (current_user.id == @shott.user_id) %>		
 						<div class="buttons has-addons">
 							<%= link_to 'Edit', edit_shott_path(@shott), class: "button" %>
-							<%= link_to 'Delete', shott_path, class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this shot?'} %>
+							<%= link_to 'Delete', shott_path, class: "button", method: :delete, data: { confirm: 'Are you sure you want to delete this shott?'} %>
 						</div>
 					<% end %>
 
 					<div class="content">
-            <%= @shott.technique %>
             <%= @shott.description %>
 					</div>
 

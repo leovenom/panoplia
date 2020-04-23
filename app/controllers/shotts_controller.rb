@@ -1,6 +1,8 @@
 class ShottsController < ApplicationController
-  before_action :set_shott, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_shott, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :like, :unlike]
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
+
   # GET /shotts
   # GET /shotts.json
   def index
@@ -61,14 +63,30 @@ class ShottsController < ApplicationController
     end
   end
 
+  def like
+    @shott.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
+  def unlike
+    @shott.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shott
       @shott = Shott.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def shott_params
-      params.require(:shott).permit(:title, :technique, :description, :user_shott)
+      params.require(:shott).permit(:title, :description, :user_shott)
     end
 end
