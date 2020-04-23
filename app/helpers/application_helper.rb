@@ -3,3 +3,4 @@ module ApplicationHelper
 		date.strftime('%B %d %Y')
 	end
 end
+
