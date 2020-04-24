@@ -1,0 +1,16 @@
+  
+<section class="section">
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-4">
+    <div class="profile_picture">
+      <% if current_user.profile_picture.attached? %>
+        <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+        <%= image_tag 'favicon.ico', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
+        <% end %>
+    </div>
+    </div>
+  </div>
+</div>
+</section>
