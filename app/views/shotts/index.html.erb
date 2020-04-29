@@ -61,7 +61,7 @@
     <div class="user-thumb">
       <%= gravatar_image_tag(shott.user.email.gsub('spam', 'mdeering'), alt: shott.user.name, gravatar: { size: 20 }); %>
     </div>
-    <div class="user-name"><%= shott.user.name %></div>
+    <div class="user-name"><%=link_to shott.user.name, user_path(current_user.id) %></div>
   </div>
 </div>
 <% end %>

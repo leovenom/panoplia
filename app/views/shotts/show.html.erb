@@ -7,7 +7,7 @@
 				<div class="user-thumb">
 					<%= gravatar_image_tag(@shott.user.email.gsub('spam', 'mdeering'), alt: @shott.user.name, gravatar: { size: 20 }); %>
 				</div>
-				<div class="user-name has-text-weight-bold"><%= @shott.user.name %></div>
+				<div class="user-name has-text-weight-bold"><%= link_to @shott.user.name %></div>
 				<div class="shott-time"><span class="has-text-grey-light">posted</span><span class="has-text-weight-semibold">
 					<%= verbose_date(@shott.created_at) %>
 				</span></div>
