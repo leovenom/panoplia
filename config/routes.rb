@@ -19,6 +19,4 @@ resources :shotts do
 
   get '/users/:id', to: 'users#show'
   resources :users, only: %i[show edit]
-
-  get '/entitys/:id', to: 'entitys#show'
 end
