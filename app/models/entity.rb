@@ -1,4 +1,5 @@
 class Entity < ApplicationRecord
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -6,4 +7,5 @@ class Entity < ApplicationRecord
   has_many :shotts, dependent: :destroy
   has_many :comments, dependent: :destroy
   acts_as_voter  
+
 end
