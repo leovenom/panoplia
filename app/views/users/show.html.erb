@@ -1,13 +1,15 @@
 
+<br/>
+<div class="user-data">
+<div class="user-thumb">
+  <%= gravatar_image_tag(@user.email.gsub('spam', 'mdeering'), alt: @user.name, gravatar: { size: 20 }); %>
+</div>
+  <div class="user-name"><%= @user.name %></div>
+</div>
+<div class="shotts">
 <% @user_shotts.each do|shott|%>
-  <section class="section">
-  <div class="user-data">
-    <div class="user-thumb">
-      <%= gravatar_image_tag(shott.user.email.gsub('spam', 'mdeering'), alt: shott.user.name, gravatar: { size: 20 }); %>
-    </div>
-      <div class="user-name"><%= shott.user.name %></div>
-  </div>
-    <div class="shotts">
+<section class="section">
+
         <div class="shott-grid-item">
           <div class="shott-wrapper">
           <%= link_to shott, class: "shott" do %>
@@ -63,10 +65,8 @@
         </div>
       </nav>
       </div>
-      
-    </div>
-    <% end %>
+    </div> 
   </section>
-
-  
+  <% end %>
+  </div> 
 
