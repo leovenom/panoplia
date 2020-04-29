@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  
-  get 'profiles/show'
 resources :shotts do 
   	resources :comments 
   	member do 

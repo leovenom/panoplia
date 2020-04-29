@@ -17,7 +17,7 @@
 
  @font-face {
   font-family: Brice-bold;
-  src: url(font-path('Brice-bold.otf'));
+  src: url(font-path('Brice.otf'));
 }
 
 $pink: #a000b4;
@@ -87,8 +87,4 @@ html, body {
   background-color: #a000b4;
   color: #ffdc00;
   font-size: 1.5em;
-}
-
-.btn {
-    font-family: 'Brice-bold';
 }
