@@ -1,0 +1,18 @@
+<% @shotts.each do |shott| %>
+  <div class="shott-grid-item">
+    <div class="shott-wrapper">
+    <%= link_to shott, class: "shott" do %>
+      <%= image_tag(shott.user_shott_url) %>
+      <div class="shott-data">
+        <h3 class="shott-title"><%= shott.title %></h3>
+        <h3 class="shott-technique"><%= shott.technique %></h3>
+        <div class="shott-description"><%= truncate(shott.description, length: 60) %></div>
+        <div class="shott-time">
+          <%= time_ago_in_words(shott.created_at) %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @user == current_user %>
+    <% link_to 'Edit Profile', edit_profile_path(@user.user_name) %>
+    <% end %>
