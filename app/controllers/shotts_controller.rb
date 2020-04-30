@@ -2,7 +2,7 @@ class ShottsController < ApplicationController
   before_action :set_shott, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :like, :unlike]
   impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
-
+  
   # GET /shotts
   # GET /shotts.json
   def index
@@ -30,7 +30,7 @@ class ShottsController < ApplicationController
 
     respond_to do |format|
       if @shott.save
-        format.html { redirect_to @shott, notice: 'Shott was successfully created.' }
+        format.html { redirect_to @shott, notice: 'Shot was successfully created.' }
         format.json { render :show, status: :created, location: @shott }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ShottsController < ApplicationController
   def update
     respond_to do |format|
       if @shott.update(shott_params)
-        format.html { redirect_to @shott, notice: 'Shott was successfully updated.' }
+        format.html { redirect_to @shott, notice: 'Shot was successfully updated.' }
         format.json { render :show, status: :ok, location: @shott }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ShottsController < ApplicationController
   def destroy
     @shott.destroy
     respond_to do |format|
-      format.html { redirect_to shotts_url, notice: 'Shott was successfully destroyed.' }
+      format.html { redirect_to shotts_url, notice: 'Shot was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
