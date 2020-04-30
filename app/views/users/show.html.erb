@@ -1,9 +1,9 @@
 <section class="section">
-<div class="avatar_thumb">
-    <%= image_tag(current_user.avatar_thumbnail) %>
-    <h1 class="title is-3"><%= @user.name %></h1>
+  <div class="user-thumb-show">
+    <%= image_tag(current_user.avatar_thumbnail)%>
   </div>
-  
+    <div class="user-name"><%= @user.name %></div>
+    
 <div class="shotts">
 <% @user_shotts.each do|shott|%>
 <section class="section">

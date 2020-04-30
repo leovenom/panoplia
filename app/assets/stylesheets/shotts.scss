@@ -79,6 +79,15 @@
 	}
 }
 
+.user-thumb-show {
+	display: inline-block;
+	img {
+		border-radius: 50%;
+		height: 40px;
+		margin-left: 25px;
+	}
+}
+
 .by,
 .shott-time {
 	display: inline-block;
