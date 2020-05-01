@@ -32,13 +32,23 @@
         <%= link_to root_path, class:"navbar-item" do %>
           <h1 class="title is-4 has-text-white">Panóplia</h1>
         <% end  %>
-      <div class="navbar-burger burger" data-target="navbar">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      
     </div>
-
+    <div class="navbar-dropdown">
+      <%= link_to new_shott_path, class:"button is-primary"  do %>
+        <span class="icon is-small"><i class="fa fa-upload"></i></span>
+          <span>New Shot</span>
+      <% end %>
+      <p class="control">
+        <%= link_to "edit", edit_user_registration_path, class:"button is-dark" %>
+      </p>
+      <p class="control">
+        <%= link_to current_user.name, user_path(current_user), class:"button is-dark" %>
+      </p>
+      <p class="control">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"button is-dark" %>
+      </p>
+    </div>
       <div id="navbar" class="navbar-menu">
 
         <div class="navbar-start">
