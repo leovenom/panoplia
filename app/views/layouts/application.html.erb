@@ -43,8 +43,10 @@
         <%= link_to "edit", edit_user_registration_path, class:"button is-dark" %>
       </p>
       <p class="control">
+      <% if user_signed_in? %>
         <%= link_to current_user.name, user_path(current_user), class:"button is-dark" %>
-      </p>
+      <% end %>
+        </p>
       <p class="control">
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"button is-dark" %>
       </p>
