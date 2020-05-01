@@ -30,17 +30,30 @@
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <%= link_to root_path, class:"navbar-item" do %>
-          <h1 class="title is-4 has-text-white">Panóplia</h1>
+          <h1 class="title is-3 has-text-white">Panóplia</h1>
         <% end  %>
-      <div class="navbar-burger burger" data-target="navbar">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      
     </div>
-
+    <div class="navbar-dropdown">
+    <% if user_signed_in? %>
+      <%= link_to new_shott_path, class:"button is-primary"  do %>
+        <span class="icon is-small"><i class="fa fa-upload"></i></span>
+          <span>New Shot</span>
+      <% end %>
+      <p class="control">
+        <%= link_to "edit", edit_user_registration_path, class:"button is-dark" %>
+      </p>
+      <p class="control">
+      <% if user_signed_in? %>
+        <%= link_to current_user.name, user_path(current_user), class:"button is-dark" %>
+      <% end %>
+        </p>
+      <p class="control">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"button is-dark" %>
+      </p>
+    </div>
+    <% end %>
       <div id="navbar" class="navbar-menu">
-
         <div class="navbar-start">
           <div class="navbar-item">
             <div class="field is-grouped">

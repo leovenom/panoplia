@@ -16,7 +16,7 @@
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 1rem;
 	@media only screen and (min-width: 1600px) {
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(6, 1fr);
 	}
 	@media only screen and (max-width: 1300px) {
 		grid-template-columns: repeat(4, 1fr);
@@ -75,6 +75,16 @@
 	display: inline-block;
 	img {
 		border-radius: 50%;
+		height: 40px;
+	}
+}
+
+.user-thumb-show {
+	display: inline-block;
+	img {
+		border-radius: 50%;
+		height: 40px;
+		margin-left: 25px;
 	}
 }
 
@@ -147,4 +157,10 @@
 
 .shott-full {
 	text-align: center;
+}
+
+.shott img {
+	height: 280px;
+	width: 100%;
+	object-fit: cover;
 }

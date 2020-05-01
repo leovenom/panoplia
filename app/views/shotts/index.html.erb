@@ -6,7 +6,7 @@
     <div class="shott-grid-item">
       <div class="shott-wrapper">
       <%= link_to shott, class: "shott" do %>
-        <%= image_tag(shott.user_shott_url) %>
+        <%= image_tag(shott.user_shott_url)%>
         <div class="shott-data">
           <h3 class="shott-title"><%= shott.title %></h3>
           <h3 class="shott-technique"><%= shott.technique %></h3>
@@ -59,10 +59,11 @@
   </div>
   <div class="user-data">
     <div class="user-thumb">
-      <%= gravatar_image_tag(shott.user.email.gsub('spam', 'mdeering'), alt: shott.user.name, gravatar: { size: 20 }); %>
-    </div>
-
-    <div class="user-name"><%=link_to shott.user.name %></div>
+    <% if user_signed_in? %>
+      <%= image_tag(current_user.avatar_thumbnail)%>
+    <%  end %>
+      </div>
+    <div class="user-name"><%= link_to shott.user.name %></div>
   </div>
 </div>
 <% end %>

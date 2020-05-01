@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 gem 'bulma-rails', '~> 0.8.0'
 gem 'devise', '~> 4.3'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
@@ -38,6 +38,8 @@ gem 'actionpack'
 gem 'coffee-rails', '~> 5.0'
 gem 'uglifier', '~> 4.2'
 gem 'jquery-turbolinks', '~> 2.1'
+gem 'rmagick'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

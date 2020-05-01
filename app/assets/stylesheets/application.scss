@@ -14,7 +14,7 @@
  *= require_self
  */
 
-
+ 
  @font-face {
   font-family: Brice-bold;
   src: url(font-path('Brice.otf'));
@@ -27,7 +27,7 @@ $primary: $pink;
 $primary-invert: $pink-invert;
 $link: $primary;
 $link-hover: darken($primary, 20%);
-
+$navbar-height:	4.25rem;
 
 @import "bulma";
 
