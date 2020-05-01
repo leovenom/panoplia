@@ -9,7 +9,7 @@
 
 				  <div class="field">
           <div class="control">
-            <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached?%>
+            <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
             <%= f.file_field :avatar, as: :file, input_html: { class: "file"}, wrapper: false, label_html: { class: "label" } %>
           </div>
         </div>

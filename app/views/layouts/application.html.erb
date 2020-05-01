@@ -30,11 +30,12 @@
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <%= link_to root_path, class:"navbar-item" do %>
-          <h1 class="title is-4 has-text-white">Panóplia</h1>
+          <h1 class="title is-3 has-text-white">Panóplia</h1>
         <% end  %>
       
     </div>
     <div class="navbar-dropdown">
+    <% if user_signed_in? %>
       <%= link_to new_shott_path, class:"button is-primary"  do %>
         <span class="icon is-small"><i class="fa fa-upload"></i></span>
           <span>New Shot</span>
@@ -51,8 +52,8 @@
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"button is-dark" %>
       </p>
     </div>
+    <% end %>
       <div id="navbar" class="navbar-menu">
-
         <div class="navbar-start">
           <div class="navbar-item">
             <div class="field is-grouped">
