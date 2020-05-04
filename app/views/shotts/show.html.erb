@@ -5,9 +5,9 @@
 			<div class="column is-8">
 				<span class="by has-text-grey-light">by</span>
 				<div class="user-thumb">
-				<% if user_signed_in? && (current_user.id == @shott.user_id) %>		
-					<%= image_tag(current_user.avatar_thumbnail)%>
-					<% end %>			
+
+					<%= image_tag @shott.user.avatar %>
+		
 				</div>
 				<div class="user-name has-text-weight-bold"><%= link_to @shott.user.name %></div>
 				<div class="shott-time"><span class="has-text-grey-light">posted</span><span class="has-text-weight-semibold">

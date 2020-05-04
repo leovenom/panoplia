@@ -59,14 +59,12 @@
       </nav>
       </div>
       <div class="user-data">
-      <div class="user-thumb">
-      <% if user_signed_in?%>
-
+        <div class="user-thumb">
           <%= image_tag shott.user.avatar%>
-
-      <%  end %>
-      </div>
-      <div class="user-name"><%=  shott.user.name %></div>
+        </div>
+          <div class="user-name">
+            <%=link_to shott.user.name, shott.user %>
+          </div>
       </div>
     </div>
     <% end %>
