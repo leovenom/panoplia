@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class ShottsControllerTest < ActionDispatch::IntegrationTest
+class ShotsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @shott = shotts(:one)
+    @shot = shots(:one)
   end
 
   test "should get index" do
-    get shotts_url
+    get shots_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_shott_url
+    get new_shot_url
     assert_response :success
   end
 
-  test "should create shott" do
-    assert_difference('Shott.count') do
-      post shotts_url, params: { shott: { description: @shott.description, title: @shott.title, user_id: @shott.user_id } }
+  test "should create shot" do
+    assert_difference('Shot.count') do
+      post shots_url, params: { shot: { description: @shot.description, title: @shot.title, user_id: @shot.user_id } }
     end
 
-    assert_redirected_to shott_url(Shott.last)
+    assert_redirected_to shot_url(Shot.last)
   end
 
-  test "should show shott" do
-    get shott_url(@shott)
+  test "should show shot" do
+    get shot_url(@shot)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_shott_url(@shott)
+    get edit_shot_url(@shot)
     assert_response :success
   end
 
-  test "should update shott" do
-    patch shott_url(@shott), params: { shott: { description: @shott.description, title: @shott.title, user_id: @shott.user_id } }
-    assert_redirected_to shott_url(@shott)
+  test "should update shot" do
+    patch shot_url(@shot), params: { shot: { description: @shot.description, title: @shot.title, user_id: @shot.user_id } }
+    assert_redirected_to shot_url(@shot)
   end
 
-  test "should destroy shott" do
-    assert_difference('Shott.count', -1) do
-      delete shott_url(@shott)
+  test "should destroy shot" do
+    assert_difference('Shot.count', -1) do
+      delete shot_url(@shot)
     end
 
-    assert_redirected_to shotts_url
+    assert_redirected_to shots_url
   end
 end

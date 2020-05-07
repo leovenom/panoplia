@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_200137) do
+ActiveRecord::Schema.define(version: 2020_05_07_155855) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_200137) do
     t.text "response"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "shott_id"
+    t.integer "shot_id"
     t.integer "user_id"
   end
 
@@ -85,13 +85,13 @@ ActiveRecord::Schema.define(version: 2020_04_29_200137) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "shotts", force: :cascade do |t|
+  create_table "shots", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "user_shott"
+    t.string "user_shot"
     t.text "technique"
   end
 
