@@ -1,7 +1,7 @@
 document.addEventListener("turbolinks:load", function() {
 
-	let Shotts = {
-		previewShott() {
+	var Shots = {
+		previewShot() {
 			if (window.File && window.FileList && window.FileReader) {
 
 				function handleFileSelect(evt) {
@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", function() {
 
 					let files = evt.target.files || evt.dataTransfer.files; 
 					// files is a FileList of File objects. List some properties.
-					for (let i = 0, f; f = files[i]; i++) {
+					for (var i = 0, f; f = files[i]; i++) {
 
 						// Only process image files.
 						if (!f.type.match('image.*')) {
@@ -45,9 +45,9 @@ document.addEventListener("turbolinks:load", function() {
 				// https://stackoverflow.com/questions/47515232/how-to-set-file-input-value-when-dropping-file-on-page
 				const dropZone = document.getElementById('drop_zone');
 				const target = document.documentElement;
-				const fileInput = document.getElementById('shott_user_shott');
+				const fileInput = document.getElementById('shot_user_shot');
 				const previewImage = document.getElementById('previewImage');
-				const newShottForm = document.getElementById('new_shott');
+				const newShotForm = document.getElementById('new_shot');
 
 
 				if (dropZone) {
@@ -67,12 +67,12 @@ document.addEventListener("turbolinks:load", function() {
 						e.preventDefault();
 						dropZone.classList.remove('fire');
 						fileInput.files = e.dataTransfer.files;
-						// if on shott/id/edit hide preview image on drop
+						// if on shot/id/edit hide preview image on drop
 						if (previewImage) {
 							previewImage.style.display = 'none';
 						}
-						// If on shotts/new hide dropzone on drop
-						if(newShottForm) {
+						// If on shots/new hide dropzone on drop
+						if(newShotForm) {
 							dropZone.style.display = 'none';
 						}
 					}, false);
@@ -91,15 +91,15 @@ document.addEventListener("turbolinks:load", function() {
 				}
 			}
 		},
-		shottHover() {
-			$('.shott').hover(function() {
-				$(this).children('.shott-data').toggleClass('visible');
+		shotHover() {
+			$('.shot').hover(function() {
+				$(this).children('.shot-data').toggleClass('visible');
 			});
 		}
 
 	};
-	Shotts.previewShott();
-	Shotts.shottHover();
+	Shots.previewShot();
+	Shots.shotHover();
 
 
 });

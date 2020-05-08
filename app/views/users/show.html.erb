@@ -1,60 +1,61 @@
 <section class="section">
-  <div class="user-thumb-show">
-  <%= image_tag @user.avatar %>
-  </div>
+  <div class="avatar_thumb">
+  <% if @user.avatar.attached? %>		
+    <%= image_tag @user.avatar %>
+    </div>
     <div class="user-name"><%= @user.name %></div>
-    
-<div class="shotts">
-<% @user_shotts.each do|shott|%>
+<% end %>
+<div class="shots">
+<% @user_shots.each do|shot|%>
 <section class="section">
-        <div class="shott-grid-item">
-          <div class="shott-wrapper">
-          <%= link_to shott, class: "shott" do %>
-            <%= image_tag(shott.user_shott_url) %>
-            <div class="shott-data">
-              <h3 class="shott-title"><%= shott.title %></h3>
-              <h3 class="shott-technique"><%= shott.technique %></h3>
-              <div class="shott-description"><%= truncate(shott.description, length: 60) %></div>
-              <div class="shott-time">
-                <%= time_ago_in_words(shott.created_at) %>
+        <div class="shot-grid-item">
+          <div class="shot-wrapper">
+          <%= link_to shot, class: "shot" do %>
+            <%= image_tag(shot.user_shot_url) %>
+            <div class="shot-data">
+              <h3 class="shot-title"><%= shot.title %></h3>
+              <h3 class="shot-technique"><%= shot.technique %></h3>
+              <div class="shot-description"><%= truncate(shot.description, length: 60) %></div>
+              <div class="shot-time">
+                <%= time_ago_in_words(shot.created_at) %>
               </div>
             </div>
           <% end %>
 
-          <nav class="level shott-analytics">
+          <nav class="level shot-analytics">
           <div class="level-left"></div>
           <div class="level-right">
             <div class="level-item views data">
-              <%= link_to shott do %>
+              <%= link_to shot do %>
                 <span class="icon"><i class="fa fa-eye"></i></span>
-                <%= shott.impressionist_count %>
+                <%= shot.impressionist_count %>
               <% end %>
               
             </div>
             <div class="level-item comments data">
-            <%= link_to shott do %>
+            <%= link_to shot do %>
               <span class="icon"><i class="fa fa-comment"></i></span>
-              <%= shott.comments.count %>
+              <%= shot.comments.count %>
             <% end %>
           </div>
           <div class="level-item likes">
             <% if user_signed_in? %>
               
-              <% if current_user.liked? shott %>
-                <%= link_to unlike_shott_path(shott), method: :put, class: "unlike_shott" do %>
+              <% if current_user.liked? shot %>
+                <%= link_to unlike_shot_path(shot), method: :put, class: "unlike_shot" do %>
                   <span class="icon"><i class="fa fa-heart has-text-primary"></i></span>
-                  <span class="vote_count"><%= shott.get_likes.size %></span>
+                  <span class="vote_count"><%= shot.get_likes.size %></span>
                 <% end %>
               <% else %>
-                <%= link_to like_shott_path(shott), method: :put, class: "like_shott" do %>
+                <%= link_to like_shot_path(shot), method: :put, class: "like_shot" do %>
                   <span class="icon"><i class="fa fa-heart"></i></span>
-                  <span class="vote_count"><%= shott.get_likes.size %></span>
+                  <span class="vote_count"><%= shot.get_likes.size %></span>
                 <% end %>
               <% end %>
             <% else %>
-                <%= link_to like_shott_path(shott), method: :put, class: "like_shott" do %>
+                <%= link_to like_shot_path(shot), method: :put, class: "like_shot" do %>
                   <span class="icon"><i class="fa fa-heart"></i></span>
-                  <span class="vote_count"><%= shott.get_likes.size %></span>
+                  <span class="vote_count"><%= shot.get_likes.size %></span>
                 <% end %>
             <% end %>
     
