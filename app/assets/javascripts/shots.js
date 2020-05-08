@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
 
-	let Shots = {
+	var Shots = {
 		previewShot() {
 			if (window.File && window.FileList && window.FileReader) {
 
@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", function() {
 
 					let files = evt.target.files || evt.dataTransfer.files; 
 					// files is a FileList of File objects. List some properties.
-					for (let i = 0, f; f = files[i]; i++) {
+					for (var i = 0, f; f = files[i]; i++) {
 
 						// Only process image files.
 						if (!f.type.match('image.*')) {
